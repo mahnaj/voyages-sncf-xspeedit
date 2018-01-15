@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RobotUtilsTest {
     private RobotUtils robotUtils;
-    private List<Integer> processedItemsIndexes;
+    private HashSet<Integer> processedItemsIndexes;
     private List<Item> itemsList;
 
     @Before
@@ -48,7 +49,7 @@ public class RobotUtilsTest {
 
     private void initProcessedItemsList() {
         int[] indexArray = {8, 3, 1, 0, 5};
-        processedItemsIndexes = Arrays.stream(indexArray).boxed().collect(Collectors.toList());
+        processedItemsIndexes = Arrays.stream(indexArray).boxed().collect(Collectors.toCollection(HashSet::new));
     }
 }
 

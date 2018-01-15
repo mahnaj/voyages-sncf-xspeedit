@@ -3,16 +3,17 @@ package com.kata.voyagessncf.xspeedit.utils;
 import com.kata.voyagessncf.xspeedit.model.Box;
 import com.kata.voyagessncf.xspeedit.model.Item;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RobotUtils {
-    public boolean isItemAlreadyProcessed(List<Integer> alreadyProcessedItemsIndexes, int i) {
+    public boolean isItemAlreadyProcessed(HashSet<Integer> alreadyProcessedItemsIndexes, int i) {
         return alreadyProcessedItemsIndexes.contains(i);
     }
 
-    public Integer findBestNextItem(List<Item> items, List<Integer> alreadyProcessedItemsIndexes, int givenSize) {
+    public Integer findBestNextItem(List<Item> items, HashSet<Integer> alreadyProcessedItemsIndexes, int givenSize) {
         Integer result = null;
         int maxTotalSize = 0;
         for (int j = 0; j < items.size(); j++) {

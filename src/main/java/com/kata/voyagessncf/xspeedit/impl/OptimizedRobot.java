@@ -6,7 +6,9 @@ import com.kata.voyagessncf.xspeedit.model.Item;
 import com.kata.voyagessncf.xspeedit.utils.RobotUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class OptimizedRobot implements Robot {
     private RobotUtils robotUtils;
@@ -17,7 +19,7 @@ public class OptimizedRobot implements Robot {
 
     public List<Box> packageItems(List<Item> items) {
         List<Box> boxes = new ArrayList<>();
-        List<Integer> alreadyProcessedItemsIndexes = new ArrayList<Integer>();
+        HashSet<Integer> alreadyProcessedItemsIndexes = new HashSet<Integer>();
 
         for (int i = 0; i < items.size(); i++) {
             if (robotUtils.isItemAlreadyProcessed(alreadyProcessedItemsIndexes, i)) {
